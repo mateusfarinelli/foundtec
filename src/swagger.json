@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Foundtec API",
+    "description": "Api de achados e perdidos",
+    "version": "1.0.0",
+    "contact": {
+      "email": "mateus.zardo@fatec.sp.gov.br"
+    }
+  },
+  "paths": {
+    "/itens": {
+      "post": {
+        "tags": ["Item"],
+        "summary": "Criar um novo item",
+        "description": "Criar um novo item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "string"
+                  },
+                  "descricao": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "telefone": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "nome": "Novo item de exemplo",
+                  "descricao": "este item é um exemplo para documentação",
+                  "email": "example@example.com",
+                  "telefone": "1191111111"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Criado com sucesso"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Itens"],
+        "sumary": "Lista de todos os itens",
+        "description": "Lista todos os itens",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "nome": {
+                        "type": "string"
+                      },
+                      "descricao": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "telefone": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
